@@ -17,11 +17,6 @@ return_cols = [
     if "return" in col.lower()
 
 ]
-
-print("\nReturn Columns:")
-
-print(return_cols)
-
 # ---------------------------------
 # 2. Convert returns to numeric
 # ---------------------------------
@@ -60,12 +55,6 @@ invalid_returns = (
 
 )
 
-print(
-
-    "\nInvalid Return Rows:",
-
-    invalid_returns.sum()
-)
 
 # ---------------------------------
 # 3. Flag anomalies
@@ -88,12 +77,6 @@ for col in return_cols:
 
     )
 
-print(
-
-    "Anomaly Rows:",
-
-    anomaly_mask.sum()
-)
 
 # ---------------------------------
 # 4. Expense ratio validation
@@ -124,13 +107,6 @@ expense_invalid = (
     | (df["expense_ratio"] > 2.5)
 
     | (df["expense_ratio"].isna())
-)
-
-print(
-
-    "Invalid Expense Ratio:",
-
-    expense_invalid.sum()
 )
 
 # ---------------------------------

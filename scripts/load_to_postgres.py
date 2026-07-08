@@ -63,22 +63,10 @@ def verify(table_name, csv_rows):
 
     status = "PASS" if db_rows == csv_rows else "FAIL"
 
-    print(f"{table_name}")
-
-    print(f"CSV Rows : {csv_rows}")
-
-    print(f"DB Rows  : {db_rows}")
-
-    print(f"Status   : {status}")
-
-    print("-"*50)
-
 
 # ============================================================
 # Clear Existing Data
 # ============================================================
-
-print_header("Cleaning Existing Tables")
 
 with engine.begin() as conn:
 
@@ -102,7 +90,6 @@ with engine.begin() as conn:
         CASCADE;
     """))
 
-print("Existing data removed.\n")
 
 # ============================================================
 # Load Dimension Fund
@@ -156,8 +143,6 @@ verify(
     len(fund_df)
 
 )
-
-print("\nPart 1 Completed Successfully.")
 
 # ============================================================
 # Generate Date Dimension
@@ -363,8 +348,6 @@ verify(
 
 )
 
-print("\n✅ Part 2 Completed Successfully.")
-
 # ============================================================
 # Load fact_transactions
 # ============================================================
@@ -486,8 +469,6 @@ verify(
     "fact_performance",
     len(fact_performance)
 )
-
-print("\n✅ Part 3 Completed Successfully.")
 
 # ============================================================
 # Load fact_aum
